@@ -3,9 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
+import Header from './Header.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Register />
+    <Header />
   </StrictMode>,
 )
