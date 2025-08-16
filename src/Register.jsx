@@ -1,3 +1,4 @@
+import './App.css'
 import Button from "./components/Button.jsx"
 import InputText from "./components/InputText.jsx"
 import GoogleButton from "./components/GoogleButton.jsx"
@@ -8,11 +9,14 @@ import ErrorDefault from "./components/ErrorDefault.jsx"
 import SelectOption from "./components/SelectOption.jsx"
 import SelectCountry from "./components/SelectCountry.jsx"
 import logoId from './assets/id.png'
+import InputNumber from './components/InputNumber.jsx'
+import InputPassword from './components/InputPassword.jsx'
 
 
 const App = () => {
 return (
-<div className="border flex flex-col w-screen min-h-screen justify-start items-center px-[28px] py-[20px] bg-background " >
+
+<div className="flex flex-col w-full min-h-full justify-start items-center px-[28px] py-[20px] bg-background " >
     <div className="border border-other-border rounded-sm flex flex-col justify-center p-[20px] w-full gap-[20px] sm:w-[590px] bg-white" >
         <HeadingSemiBold>Pendaftaran Akun</HeadingSemiBold>
         <BodyRegular className="text-center">Yuk, Daftarkan akunmu sekarang juga!</BodyRegular>
@@ -26,21 +30,21 @@ return (
             <option value="pria">Pria</option>
         </SelectOption>
         <BodyRegular>No. Hp <ErrorDefault/></BodyRegular>
-        <div className="flex flex-row justify-between gap-[10px] w-full" >
-            <div className="flex flex-row w-[70%] ">
+        <div className="flex flex-row gap-[12px] sm:gap-[24px] " >
+            <div className=" flex flex-row w-[45%]">
             <img className="rounded-l-md" src={logoId} alt="" /> 
             <SelectCountry>
                 <option value="">+62</option>
             </SelectCountry>
             </div>
-            <div className="flex items-end w-full ">
-            <InputText/>
+            <div className="flex w-[55%]  ">
+            <InputNumber/>
             </div>               
         </div>
         <BodyRegular>Kata Sandi <ErrorDefault/></BodyRegular>
-        <InputText/>
+        <InputPassword/>
         <BodyRegular>Konfirmasi Kata Sandi <ErrorDefault/></BodyRegular>
-        <InputText/>
+        <InputPassword/>
         <BodyMedium className="text-right">Lupa Password?</BodyMedium>
         <Button>Daftar</Button>
         <Button>Masuk</Button>
