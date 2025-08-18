@@ -1,8 +1,8 @@
 import '@fontsource/poppins';
-const HeadingSemiBold = ({children}) => {
+const HeadingSemiBold = ({children, className}) => {
     return (
-        <h2 className="font-semibold text-2xl leading-[120%] text-center sm:text-[32px] text-dark-primary  
-        font-[poppins]" >{children}</h2>
+        <h2 className={`${className ?? "text-center"} font-semibold text-2xl leading-[120%] sm:text-[32px] text-dark-primary  
+        font-[poppins] `} >{children}</h2>
     )
 }
 export default HeadingSemiBold

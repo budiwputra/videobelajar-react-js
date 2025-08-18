@@ -2,7 +2,10 @@
 
 @theme {
     --color-primary : #3ECF4C;
+    --color-primary-hover : #31a53c;
     --color-primary-80 : #E2FCD9CC; 
+    --color-secondary : #FFBD3A;
+    --color-secondary-80 : #FFF7D7CC;
     --color-dark-secondary : #333333AD;
     --color-dark-primary : #222325;
     --color-other-border : #3A35411F;

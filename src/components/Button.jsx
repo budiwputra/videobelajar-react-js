@@ -1,8 +1,9 @@
-const Button = ({children}) => {
+const Button = ({children, className}) => {
     return (
-        <button className="w-full font-bold leading-[140%] tracking-[0.2px] 
-        text-sm sm:text-base bg-primary-80 text-primary p-[7px] sm:p-[10px] rounded-[10px] hover:bg-primary hover:text-white cursor-pointer
-        ">{children}</button>
+        <button className={`${className ?? "py-[7px] px-[22px]"} border border-primary font-bold leading-[140%] tracking-[0.2px] 
+        text-sm sm:text-base bg-primary text-white   
+        sm:p-[10px] rounded-[10px] hover:bg-primary-80 hover:text-primary hover:border-primary-80 cursor-pointer
+        `}>{children}</button>
     )
 }
 export default Button

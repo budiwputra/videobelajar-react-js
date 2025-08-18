@@ -16,7 +16,7 @@ import InputPassword from './components/InputPassword.jsx'
 const App = () => {
 return (
 
-<div className="flex flex-col w-full min-h-full justify-start items-center px-[28px] py-[20px] bg-background " >
+<div className="flex flex-col w-full min-h-screen justify-start items-center px-[28px] py-[20px] bg-background " >
     <div className="border border-other-border rounded-sm flex flex-col justify-center p-[20px] w-full gap-[20px] sm:w-[590px] bg-white" >
         <HeadingSemiBold>Pendaftaran Akun</HeadingSemiBold>
         <BodyRegular className="text-center">Yuk, Daftarkan akunmu sekarang juga!</BodyRegular>
@@ -45,7 +45,7 @@ return (
         <InputPassword/>
         <BodyRegular>Konfirmasi Kata Sandi <ErrorDefault/></BodyRegular>
         <InputPassword/>
-        <BodyMedium className="text-right">Lupa Password?</BodyMedium>
+        <BodyMedium className="text-right text-sm sm:text-base text-dark-secondary">Lupa Password?</BodyMedium>
         <Button>Daftar</Button>
         <Button>Masuk</Button>
         <BodyRegular className="text-center">atau</BodyRegular>
