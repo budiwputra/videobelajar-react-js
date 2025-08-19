@@ -1,6 +1,6 @@
-import videoLogo from './assets/videobelajar.png'
-import avaPic from './assets/ava.png'
-import hamburgerMenu from './assets/hamburger.png'
+import videoLogo from '../assets/videobelajar.png'
+import avaPic from '../assets/ava.png'
+import hamburgerMenu from '../assets/hamburger.png'
 
 const HeaderHome = () => {
     return (

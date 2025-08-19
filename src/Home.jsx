@@ -7,11 +7,15 @@ import HeadingBold from "./components/HeadingBold.jsx"
 import NavBar from "./components/NavBar.jsx"
 import Picture from "./components/Picture.jsx"
 import SecondaryButton from "./components/SecondaryButton.jsx"
+import HeaderHome from "./components/HeaderHome.jsx"
+import Footer from "./components/Footer.jsx"
 
 const App = () => {
   return (
+    <>
+    <HeaderHome/>
     <div className="flex flex-col w-full min-h-full justify-start items-center px-[20px] py-[28px] gap-[24px] sm:gap-[64px] 
-    sm:px-[120px] sm:py-[64px] bg-background border " >
+    sm:px-[120px] sm:py-[64px] bg-background" >
 
       <div className="border border-black/80 rounded-[10px] flex flex-col justify-center items-center px-[20px] py-[37px] w-full 
       sm:px-[140px] sm:pt-[68.5px] sm:pb-[50.5px] bg-black/80 gap-[12px]" >
@@ -53,6 +57,8 @@ const App = () => {
           </div>
         </div>
     </div>
+    <Footer/>
+    </>
 
   )
 }
