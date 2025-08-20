@@ -11,9 +11,12 @@ import logoId from '../assets/id.png'
 import InputNumber from '../components/InputNumber.jsx'
 import InputPassword from '../components/InputPassword.jsx'
 import Header from '../components/Header.jsx'
+import { useNavigate } from "react-router"
 
 
 const App = () => {
+    const navigate = useNavigate()
+
 return (
 <>
 <Header/>
@@ -47,8 +50,8 @@ return (
         <BodyRegular>Konfirmasi Kata Sandi <ErrorDefault/></BodyRegular>
         <InputPassword/>
         <BodyMedium className="text-right text-sm sm:text-base text-dark-secondary">Lupa Password?</BodyMedium>
-        <Button>Daftar</Button>
-        <Button>Masuk</Button>
+        <Button >Daftar</Button>
+        <Button onClick={() => navigate('/')}>Masuk</Button>
         <BodyRegular className="text-center text-dark-secondary">atau</BodyRegular>
         <GoogleButton>Daftar dengan Google</GoogleButton>
     </div>     

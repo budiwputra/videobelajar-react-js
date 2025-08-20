@@ -1,14 +1,14 @@
-import Button from "./components/Button.jsx"
-import InputText from "./components/InputText.jsx"
-import HeadingSemiBold from "./components/HeadingSemiBold.jsx"
-import BodyRegular from "./components/BodyRegular.jsx"
-import BodyMedium from "./components/BodyMedium.jsx"
-import HeadingBold from "./components/HeadingBold.jsx"
-import NavBar from "./components/NavBar.jsx"
-import Picture from "./components/Picture.jsx"
-import SecondaryButton from "./components/SecondaryButton.jsx"
-import HeaderHome from "./components/HeaderHome.jsx"
-import Footer from "./components/Footer.jsx"
+import Button from "../components/Button.jsx"
+import InputText from "../components/InputText.jsx"
+import HeadingSemiBold from "../components/HeadingSemiBold.jsx"
+import BodyRegular from "../components/BodyRegular.jsx"
+import BodyMedium from "../components/BodyMedium.jsx"
+import HeadingBold from "../components/HeadingBold.jsx"
+import NavBar from "../components/NavBar.jsx"
+import Picture from "../components/Picture.jsx"
+import SecondaryButton from "../components/SecondaryButton.jsx"
+import HeaderHome from "../components/HeaderHome.jsx"
+import Footer from "../components/Footer.jsx"
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
     <div className="flex flex-col w-full min-h-full justify-start items-center px-[20px] py-[28px] gap-[24px] sm:gap-[64px] 
     sm:px-[120px] sm:py-[64px] bg-background" >
 
+      <div className="bg-[url('/assets/bgHero.jpg')] rounded-[10px] bg-cover bg-center bg-no-repeat">
       <div className="border border-black/80 rounded-[10px] flex flex-col justify-center items-center px-[20px] py-[37px] w-full 
       sm:px-[140px] sm:pt-[68.5px] sm:pb-[50.5px] bg-black/80 gap-[12px]" >
         <HeadingBold className="text-center text-2xl sm:text-5xl">
@@ -26,6 +27,7 @@ const App = () => {
           pemahaman Anda.
         </BodyMedium>
         <Button className="w-fit font-normal sm:font-bold py-[10px] px-[8px] sm:px-[16px] mt-[12px]">Temukan Video Course untuk Dipelajari!</Button>
+      </div>
       </div>
 
       <div className="flex flex-col w-full gap-[32px] ">
@@ -43,7 +45,9 @@ const App = () => {
         <div className="w-full">
           <Picture/>
         </div>
-      </div>   
+      </div>
+
+      <div className="bg-[url('/assets/bgFooter.jpg')] bg-cover bg-center bg-no-repeat rounded-sm ">
         <div className="border border-black/80 bg-black/80 rounded-sm text-base sm:text-[18px] flex-col flex items-center justify-center
         py-[48px] px-[20px] sm:py-[92px] sm:px-[337.5px] gap-[4px] w-full">
           <BodyMedium className="text-white">NEWSLETTER</BodyMedium>
@@ -52,10 +56,12 @@ const App = () => {
             spesial dari program-program terbaik harisenin.com
           </BodyRegular>
           <div className=" border-amber-500 w-full sm:relative">
-          <InputText placeholder="Masukkan Emailmu" className="bg-white border mt-[36px] text-center sm:text-left sm:px-[26px]"/>
-          <SecondaryButton className="w-full sm:w-fit py-[10px] px-[26px] sm:absolute sm:right-0 sm:top-9 mt-[16px] sm:mt-0">Subscribe</SecondaryButton>
+          <InputText placeholder="Masukkan Emailmu" className="bg-white border mt-[36px] text-center sm:text-left sm:px-[26px] sm:py-[18px]"/>
+          <SecondaryButton className="w-full sm:w-fit py-[10px] px-[26px] sm:absolute sm:right-2 sm:top-11 mt-[16px] sm:mt-0">Subscribe</SecondaryButton>
           </div>
-        </div>
+        </div>     
+      </div>   
+
     </div>
     <Footer/>
     </>
