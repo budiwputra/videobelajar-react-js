@@ -9,6 +9,8 @@ import Picture from "../components/Picture.jsx"
 import SecondaryButton from "../components/SecondaryButton.jsx"
 import HeaderHome from "../components/HeaderHome.jsx"
 import Footer from "../components/Footer.jsx"
+import '../App.css'
+import activeMenu from '../assets/rectangle.png'
 
 const App = () => {
   return (
@@ -35,11 +37,13 @@ const App = () => {
         <HeadingSemiBold className="text-left">Koleksi Video Pembelajaran Unggulan</HeadingSemiBold>
         <BodyMedium className="text-left text-dark-secondary text-sm sm:text-base">Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</BodyMedium>
         </div>
-        <div className="w-full">
+        <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
           <NavBar>
-            <li>Semua Kelas</li>
-            <li>Pemasaran</li>
-            <li>Desain</li>
+            <li className="text-tertiary-default">Semua Kelas</li>
+            <li className="">Pemasaran</li>
+            <li className="">Desain</li>
+            <li className="">Pengembangan Diri</li>
+            <li className="">Bisnis</li>
           </NavBar>
         </div>
         <div className="w-full">

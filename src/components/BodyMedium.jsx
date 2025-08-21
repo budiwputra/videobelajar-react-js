@@ -1,3 +1,4 @@
+// Supports weights 100-900
 
 
 const BodyMedium = ({children, className}) => {

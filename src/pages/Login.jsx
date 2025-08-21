@@ -28,7 +28,11 @@ const App = () => {
       <BodyMedium className="text-right text-sm sm:text-base text-dark-secondary">Lupa Password?</BodyMedium>
       <Button onClick={() => navigate('/home')} >Masuk</Button>
       <Button onClick={() => navigate('/register')} >Daftar</Button>
+      <div className="flex items-center gap-2">
+      <div className="flex-grow h-px bg-gray-300"></div>
       <BodyRegular className="text-center text-dark-secondary">atau</BodyRegular>
+      <div className="flex-grow h-px bg-gray-300"></div>
+      </div>
       <GoogleButton>Masuk dengan Google</GoogleButton>
       </div>     
     </div>

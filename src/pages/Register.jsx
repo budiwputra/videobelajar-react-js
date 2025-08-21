@@ -52,7 +52,11 @@ return (
         <BodyMedium className="text-right text-sm sm:text-base text-dark-secondary">Lupa Password?</BodyMedium>
         <Button >Daftar</Button>
         <Button onClick={() => navigate('/')}>Masuk</Button>
+        <div className="flex items-center gap-2">
+        <div className="flex-grow h-px bg-gray-300"></div>
         <BodyRegular className="text-center text-dark-secondary">atau</BodyRegular>
+        <div className="flex-grow h-px bg-gray-300"></div>
+        </div>
         <GoogleButton>Daftar dengan Google</GoogleButton>
     </div>     
 </div>
