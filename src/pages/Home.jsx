@@ -39,7 +39,7 @@ const App = () => {
         </div>
         <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
           <NavBar>
-            <li className="text-tertiary-default">Semua Kelas</li>
+            <li className="text-tertiary-default flex flex-col justify-between gap-[12px]"><span>Semua Kelas</span> <span className="border-3 rounded-sm w-[52px]"></span></li>
             <li className="">Pemasaran</li>
             <li className="">Desain</li>
             <li className="">Pengembangan Diri</li>
