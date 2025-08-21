@@ -9,6 +9,8 @@ import igLogo from '../assets/igLogo.png'
 import inLogo from '../assets/inLogo.png'
 import BodyMedium from './BodyMedium'
 import { useState } from 'react'
+import rightLogo from '../assets/right.png'
+import bottomLogo from '../assets/bottom.png'
 
 const Footer = () => {
     const [openMenu, setOpenMenu] = useState(null)
@@ -78,7 +80,7 @@ const Footer = () => {
                     <button className='font-medium leading-[140%] tracking-[0.2px]
                     text-left w-full flex justify-between items-center'
                     onClick={ () => toggleMenu("kategori")}
-                    >Kategori <span>{openMenu === "kategori" ? "-" : "+"}</span></button>
+                    >Kategori <span>{openMenu === "kategori" ? <img src={rightLogo} /> : <img src={bottomLogo} /> }</span></button>
 
                     {openMenu === "kategori" && (
                         <div className=' border-other-border pl-[12px] py-[12px] flex flex-col gap-[12px]'>
@@ -93,7 +95,7 @@ const Footer = () => {
                     <button className='font-medium leading-[140%] tracking-[0.2px]
                     text-left w-full flex justify-between items-center'
                     onClick={ () => toggleMenu("perusahaan")}
-                    >Perusahaan <span>{openMenu === "perusahaan" ? "-" : "+"}</span></button>
+                    >Perusahaan <span>{openMenu === "perusahaan" ? <img src={rightLogo} /> : <img src={bottomLogo} />}</span></button>
 
                     {openMenu === "perusahaan" && (
                         <div className=' border-other-border pl-[12px] py-[12px] flex flex-col gap-[12px]'>
@@ -108,7 +110,7 @@ const Footer = () => {
                     <button className='font-medium leading-[140%] tracking-[0.2px]
                     text-left w-full flex justify-between items-center'
                     onClick={ () => toggleMenu("komunitas")}
-                    >Komunitas <span>{openMenu === "komunitas" ? "-" : "+"}</span></button>
+                    >Komunitas <span>{openMenu === "komunitas" ? <img src={rightLogo} /> : <img src={bottomLogo} />}</span></button>
 
                     {openMenu === "komunitas" && (
                         <div className=' border-other-border pl-[12px] py-[12px] flex flex-col gap-[12px]'>

@@ -25,7 +25,7 @@ const HeaderHome = () => {
                 </div>
             </div>
                 {open && (
-                <div className="absolute top-[69px] sm:right-30 right-0 bg-white shadow-md border border-other-border z-50 w-full sm:w-[200px]">
+                <div className="absolute top-[69px] sm:top-[75px] sm:right-30 right-0 bg-white shadow-md border border-other-border z-50 w-full sm:w-[200px]">
                 <ul className="flex flex-col divide-y divide-other-border " >
                     <li className="sm:hidden flex items-center gap-3 p-4 hover:bg-gray-100 ">
                     <BodyMedium className="text-dark-secondary">Kategori</BodyMedium>
