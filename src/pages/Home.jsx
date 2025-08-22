@@ -10,7 +10,6 @@ import SecondaryButton from "../components/SecondaryButton.jsx"
 import HeaderHome from "../components/HeaderHome.jsx"
 import Footer from "../components/Footer.jsx"
 import '../App.css'
-import activeMenu from '../assets/rectangle.png'
 
 const App = () => {
   return (

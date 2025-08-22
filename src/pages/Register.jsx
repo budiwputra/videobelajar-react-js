@@ -34,17 +34,21 @@ return (
             <option value="pria">Pria</option>
         </SelectOption>
         <BodyRegular>No. Hp <ErrorDefault/></BodyRegular>
-        <div className="flex flex-row gap-[12px] sm:gap-[24px] " >
-            <div className=" flex flex-row w-[45%]">
+
+        <div className="gap-[12px] sm:gap-[24px] grid grid-cols-[45%_auto]" >
+
+            <div className="flex">
             <img className="rounded-l-md" src={logoId} alt="" /> 
             <SelectCountry>
                 <option value="">+62</option>
             </SelectCountry>
             </div>
-            <div className="flex w-[55%]  ">
+
+            <div className="">
             <InputNumber/>
             </div>               
         </div>
+        
         <BodyRegular>Kata Sandi <ErrorDefault/></BodyRegular>
         <InputPassword/>
         <BodyRegular>Konfirmasi Kata Sandi <ErrorDefault/></BodyRegular>
