@@ -23,7 +23,7 @@ const App = () => {
       sm:px-[140px] sm:pt-[68.5px] sm:pb-[50.5px] bg-black/80 gap-[12px]" >
         <HeadingBold className="text-center text-2xl sm:text-5xl">
           Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video Interaktif!</HeadingBold>
-        <BodyMedium className="text-white text-sm sm:text-base text-center font-normal sm:font-medium">Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
+        <BodyMedium className="text-white text-center font-normal sm:font-medium">Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
           Pembelajaran berkualitas tinggi. Tidak hanya itu, Anda juga dapat berpartisipasi dalam latihan interaktif yang akan meningkatkan
           pemahaman Anda.
         </BodyMedium>
