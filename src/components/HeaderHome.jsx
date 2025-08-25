@@ -16,8 +16,8 @@ const HeaderHome = () => {
                 <img className='w-[152px] sm:w-[237px]' src={videoLogo} alt="videobelajar" />
 
                 <div className='hidden sm:flex'>
-                <button onClick={() => setOpen(!open)} className='flex items-center gap-[36px] 
-                font-medium text-base leading-[140%] tracking-[0.2px] text-dark-secondary cursor-pointer'>Kategori <img src={avaPic} alt="profile" /> </button>
+                <button className='flex items-center gap-[36px] 
+                font-medium text-base leading-[140%] tracking-[0.2px] text-dark-secondary cursor-pointer'>Kategori <img onClick={() => setOpen(!open)} src={avaPic} alt="profile" /> </button>
                 </div>
 
                 <div className='flex sm:hidden'>

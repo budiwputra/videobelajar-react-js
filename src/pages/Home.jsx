@@ -42,7 +42,8 @@ const App = () => {
             <li className="">Pemasaran</li>
             <li className="">Desain</li>
             <li className="">Pengembangan Diri</li>
-            <li className="">Bisnis</li>
+            <li className="">Bisnis Manajemen</li>
+            <li className="">Digital & Teknologi</li>
           </NavBar>
         </div>
         <div className="w-full">
@@ -50,7 +51,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="bg-[url('/assets/bgFooter.jpg')] bg-cover bg-center bg-no-repeat rounded-sm ">
+      <div className="bg-[url('/assets/bgFooter.jpg')] bg-cover bg-center bg-no-repeat rounded-sm w-full ">
         <div className="border border-black/80 bg-black/80 rounded-sm text-base sm:text-[18px] flex-col flex items-center justify-center
         py-[48px] px-[20px] sm:py-[92px] sm:px-[337.5px] gap-[4px] w-full">
           <BodyMedium className="text-white">NEWSLETTER</BodyMedium>

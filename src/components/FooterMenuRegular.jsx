@@ -12,7 +12,7 @@ const FooterMenuRegular = () => {
                         <div className='sm:flex sm:flex-col sm:gap-[13px]'>
                         <BodyMedium className="text-dark-secondary">Digital & Teknologi</BodyMedium>
                         <BodyMedium className="text-dark-secondary">Pemasaran</BodyMedium>
-                        <BodyMedium className="text-dark-secondary">Manajemen Bisnis</BodyMedium>
+                        <BodyMedium className="text-dark-secondary">Bisnis Manajemen</BodyMedium>
                         <BodyMedium className="text-dark-secondary">Pengembangan Diri</BodyMedium>
                         <BodyMedium className="text-dark-secondary">Desain</BodyMedium>
                         </div>
