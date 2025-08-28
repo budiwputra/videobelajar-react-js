@@ -1,0 +1,19 @@
+import { Outlet } from "react-router"
+import HeaderDashboard from "../components/models/HeaderDashboard"
+import SideBarDashboard from "../components/models/SideBarDashboard"
+
+const DashboardLayout = () => {
+    return (
+        <div className="hidden md:flex md:flex-row min-h-screen">
+        <SideBarDashboard />
+        <div className="flex flex-col flex-1 border-l border-other-border bg-gray-300">
+            <HeaderDashboard />
+            <div className="flex-1 overflow-auto">
+            <Outlet />
+            </div>
+        </div>
+        </div>
+    )
+}
+
+export default DashboardLayout

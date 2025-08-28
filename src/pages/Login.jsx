@@ -1,22 +1,17 @@
-import Button from "../components/Button.jsx"
-import InputText from "../components/InputText.jsx"
-import GoogleButton from "../components/GoogleButton.jsx"
-import HeadingSemiBold from "../components/HeadingSemiBold.jsx"
-import BodyRegular from "../components/BodyRegular.jsx"
-import BodyMedium from "../components/BodyMedium.jsx"
-import ErrorDefault from "../components/ErrorDefault.jsx"
-import InputPassword from "../components/InputPassword.jsx"
-import Header from "../components/Header.jsx"
+import Button from "../components/elements/Button.jsx"
+import InputText from "../components/elements/InputText.jsx"
+import GoogleButton from "../components/elements/GoogleButton.jsx"
+import HeadingSemiBold from "../components/elements/HeadingSemiBold.jsx"
+import BodyRegular from "../components/elements/BodyRegular.jsx"
+import BodyMedium from "../components/elements/BodyMedium.jsx"
+import ErrorDefault from "../components/elements/ErrorDefault.jsx"
+import InputPassword from "../components/elements/InputPassword.jsx"
 import { useNavigate } from "react-router"
 
 const App = () => {
   const navigate = useNavigate()
-  return (
-    
-    <div className="flex flex-col min-h-screen">
-
-    <Header/>
-    <div className="flex-1 flex flex-col w-full justify-center items-center px-[28px] py-[20px] bg-background" >
+  return (    
+    <div className="flex flex-col justify-center">
       <div className="border border-other-border 
       rounded-sm flex flex-col justify-center p-[20px] w-full sm:w-[590px] gap-[20px] bg-white  " >
       <HeadingSemiBold>Masuk ke Akun</HeadingSemiBold>
@@ -36,11 +31,6 @@ const App = () => {
       <GoogleButton>Masuk dengan Google</GoogleButton>
       </div>     
     </div>
-
-    </div>
-    
-
-
   )
 }
 

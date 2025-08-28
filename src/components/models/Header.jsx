@@ -1,4 +1,4 @@
-import videoLogo from '../assets/videobelajar.png'
+import videoLogo from '../../assets/videobelajar.png'
 
 const Header = () => {
     return (

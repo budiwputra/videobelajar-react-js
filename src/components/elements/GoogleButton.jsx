@@ -1,4 +1,4 @@
-import googleLogo from '../assets/google.png'
+import googleLogo from '../../assets/google.png'
 const GoogleButton = ({children}) => {
     return (
             <button className="border border-other-border rounded-[10px] font-bold text-sm sm:text-base w-full

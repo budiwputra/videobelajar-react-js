@@ -1,5 +1,5 @@
-import BodyLarge from "./BodyLarge"
-import BodyMedium from "./BodyMedium"
+import BodyLarge from "../elements/BodyLarge"
+import BodyMedium from "../elements/BodyMedium"
 
 const FooterMenuRegular = () => {
     return (

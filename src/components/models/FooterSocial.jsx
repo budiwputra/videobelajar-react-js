@@ -1,8 +1,8 @@
-import BodyMedium from './BodyMedium'
-import xLogo from '../assets/xLogo.png'
-import fbLogo from '../assets/fbLogo.png'
-import igLogo from '../assets/igLogo.png'
-import inLogo from '../assets/inLogo.png'
+import BodyMedium from '../elements/BodyMedium'
+import xLogo from '../../assets/xLogo.png'
+import fbLogo from '../../assets/fbLogo.png'
+import igLogo from '../../assets/igLogo.png'
+import inLogo from '../../assets/inLogo.png'
 
 const FooterSocial = () => {
     return (

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import eyeLogo from '../assets/eye_off.png'
+import eyeLogo from '../../assets/eye_off.png'
 
 const InputPassword = () => {
     const [showPassword, setShowPassword] = useState(false)

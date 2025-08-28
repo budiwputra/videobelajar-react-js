@@ -1,21 +1,17 @@
-import Button from "../components/Button.jsx"
-import InputText from "../components/InputText.jsx"
-import HeadingSemiBold from "../components/HeadingSemiBold.jsx"
-import BodyRegular from "../components/BodyRegular.jsx"
-import BodyMedium from "../components/BodyMedium.jsx"
-import HeadingBold from "../components/HeadingBold.jsx"
-import NavBar from "../components/NavBar.jsx"
-import Picture from "../components/Picture.jsx"
-import SecondaryButton from "../components/SecondaryButton.jsx"
-import HeaderHome from "../components/HeaderHome.jsx"
-import Footer from "../components/Footer.jsx"
+import Button from "../components/elements/Button.jsx"
+import InputText from "../components/elements/InputText.jsx"
+import HeadingSemiBold from "../components/elements/HeadingSemiBold.jsx"
+import BodyRegular from "../components/elements/BodyRegular.jsx"
+import BodyMedium from "../components/elements/BodyMedium.jsx"
+import HeadingBold from "../components/elements/HeadingBold.jsx"
+import NavBar from "../components/models/NavBar.jsx"
+import SecondaryButton from "../components/elements/SecondaryButton.jsx"
 import '../App.css'
-import Card from "../components/Card.jsx"
+import Card from "../components/models/Card.jsx"
+import { Outlet } from "react-router"
 
 const App = () => {
   return (
-    <>
-    <HeaderHome/>
     <div className="flex flex-col w-full min-h-full justify-start items-center px-[20px] py-[28px] gap-[24px] sm:gap-[64px] 
     sm:px-[120px] sm:py-[64px] bg-background" >
       <div className="bg-[url('/assets/bgHero.jpg')] rounded-[10px] bg-cover bg-center bg-no-repeat">
@@ -23,7 +19,7 @@ const App = () => {
       sm:px-[140px] sm:pt-[68.5px] sm:pb-[50.5px] bg-black/80 gap-[12px]" >
         <HeadingBold className="text-center text-2xl sm:text-5xl">
           Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video Interaktif!</HeadingBold>
-        <BodyMedium className="text-white text-center font-normal sm:font-medium">Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
+        <BodyMedium className="text-white text-center font-normal sm:font-medium text-sm sm:text-base ">Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
           Pembelajaran berkualitas tinggi. Tidak hanya itu, Anda juga dapat berpartisipasi dalam latihan interaktif yang akan meningkatkan
           pemahaman Anda.
         </BodyMedium>
@@ -36,6 +32,7 @@ const App = () => {
         <HeadingSemiBold className="text-left">Koleksi Video Pembelajaran Unggulan</HeadingSemiBold>
         <BodyMedium className="text-left text-dark-secondary text-sm sm:text-base">Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</BodyMedium>
         </div>
+
         <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
           <NavBar>
             <li className="text-tertiary-default flex flex-col justify-between gap-[12px]"><span>Semua Kelas</span> <span className="border-3 rounded-sm w-[52px]"></span></li>
@@ -46,9 +43,13 @@ const App = () => {
             <li className="">Digital & Teknologi</li>
           </NavBar>
         </div>
+
         <div className="w-full">
-          <Card/>
+          <Card>
+            <Outlet/>
+          </Card>
         </div>
+        
       </div>
 
       <div className="bg-[url('/assets/bgFooter.jpg')] bg-cover bg-center bg-no-repeat rounded-sm w-full ">
@@ -67,9 +68,6 @@ const App = () => {
       </div>   
 
     </div>
-    <Footer/>
-    </>
-
   )
 }
 

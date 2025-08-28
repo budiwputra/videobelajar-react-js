@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import BodyMedium from "./BodyMedium"
-import rightLogo from '../assets/right.png'
-import bottomLogo from '../assets/bottom.png'
+import BodyMedium from "../elements/BodyMedium"
+import rightLogo from '../../assets/right.png'
+import bottomLogo from '../../assets/bottom.png'
 
 const FooterMenuSmall = () => {
     const [openMenu, setOpenMenu] = useState(null)

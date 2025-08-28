@@ -1,4 +1,4 @@
-const images = [
+const product = [
     {
         picture : '/assets/card.png',
         alt : 'Picture 1',
@@ -68,4 +68,4 @@ const images = [
     
 ]
 
-export default images
+export default product
