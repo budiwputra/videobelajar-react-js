@@ -10,21 +10,21 @@ const product = [
         picture : '/assets/card2.png',
         alt : 'Picture 2',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Pemasaran',
         price : 'Rp 300K'
     },
     {
         picture : '/assets/card3.png',
         alt : 'Picture 3',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Desain Grafis',
         price : 'Rp 300K'
     },
     {
         picture : '/assets/card4.png',
         alt : 'Picture 4',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Desain Grafis',
         price : 'Rp 300K'
     }
     ,
@@ -32,7 +32,7 @@ const product = [
         picture : '/assets/card5.png',
         alt : 'Picture 5',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Pengembangan Diri',
         price : 'Rp 300K'
     }
     ,
@@ -40,14 +40,14 @@ const product = [
         picture : '/assets/card6.png',
         alt : 'Picture 6',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Bisnis Manajemen',
         price : 'Rp 300K'
     },
     {
         picture : '/assets/card7.png',
         alt : 'Picture 77',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Bisnis Manajemen',
         price : 'Rp 300K'
     }
     ,
@@ -55,14 +55,14 @@ const product = [
         picture : '/assets/card8.png',
         alt : 'Picture 8',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Digital & Teknologi',
         price : 'Rp 300K'
     },
     {
         picture : '/assets/card9.png',
         alt : 'Picture 9',
         title : 'Big 4 Auditor Financial Analyst',
-        category : 'Desain',
+        category : 'Digital & Teknologi',
         price : 'Rp 300K'
     }
     

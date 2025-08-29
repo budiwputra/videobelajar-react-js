@@ -17,7 +17,9 @@ const HeaderHome = () => {
                 <img onClick={() => {navigate('/home')}} className='w-[152px] sm:w-[237px] cursor-pointer' src={videoLogo} alt="videobelajar" />
                 <div className='hidden sm:flex sm:flex-row gap-[36px]'>
                 <ButtonMenu className=" hover:text-primary " onClick={() => navigate('/dashboard')}>Dashboard</ButtonMenu>
-                <ButtonMenu onClick={() => {navigate('category')}} className="flex items-center gap-[36px] hover:text-primary">Kategori <img onClick={() => setOpen(!open)} src={avaPic} alt="profile" /></ButtonMenu>
+                <ButtonMenu onClick={() => {navigate('category')}} className="flex items-center gap-[36px] hover:text-primary">Kategori 
+                    </ButtonMenu>
+                    <img className='cursor-pointer' onClick={() => setOpen(!open)} src={avaPic} alt="profile" />
                 </div>
                 <div className='flex sm:hidden'>
                     <button onClick={ () => setOpen(!open)} ><img src={hamburgerMenu} alt="menu" /></button>
@@ -37,7 +39,7 @@ const HeaderHome = () => {
                     <ButtonMenu>Profil Saya</ButtonMenu>
                     </li>
                     <li className="flex items-center gap-3 p-4 hover:bg-gray-100">
-                    <ButtonMenu>Kelas Saya</ButtonMenu>
+                    <ButtonMenu onClick={()=> navigate('/text')}>Kelas Saya</ButtonMenu>
                     </li>
                     <li className="flex items-center gap-3 p-4 hover:bg-gray-100">
                     <ButtonMenu>Pesanan Saya</ButtonMenu>

@@ -6,8 +6,8 @@ import BodyRegular from '../elements/BodyRegular.jsx'
 import HeadingSemiBold from '../elements/HeadingSemiBold.jsx'
 import product from '../../store/product.js'
 
-
 const Card = () => {
+
     return (
         <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
         sm:grid sm:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto] 2xl:grid-cols-[auto_auto_auto_auto] '>

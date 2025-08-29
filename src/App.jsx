@@ -9,6 +9,7 @@ import ProductList from './pages/ProductList.jsx'
 import HomeLayout from './layouts/HomeLayout.jsx'
 import DashboardLayout from './layouts/DashboardLayout.jsx'
 import AuthLayout from './layouts/AuthLayout.jsx'
+import Text from './pages/Text.jsx'
 
 const App = () => {
     return (
@@ -28,13 +29,14 @@ const App = () => {
             <Route path='category' element={<Category/>} />            
             </Route>
 
-            <Route path='/dashboard' element={<DashboardLayout/>} >
+            <Route path='/dashboard' element={<DashboardLayout/>}>
+
             <Route index element={<Dashboard/>}/>
             <Route path='product-entry' element={<ProductEntry/>}/>
             <Route path='product-list' element={<ProductList/>}/>
-            <Route />
-            
             </Route>
+
+            <Route path='/text' element={<Text/>}/>
 
         </Routes>
     )
