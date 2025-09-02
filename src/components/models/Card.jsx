@@ -4,9 +4,12 @@ import BodyLarge from '../elements/BodyLarge.jsx'
 import BodyMedium from '../elements/BodyMedium.jsx'
 import BodyRegular from '../elements/BodyRegular.jsx'
 import HeadingSemiBold from '../elements/HeadingSemiBold.jsx'
-import product from '../../store/product.js'
+import useProductStore from '../../store/useProductStore.js'
+import productImg from '../../assets/card.png'
+
 
 const Card = () => {
+    const product = useProductStore( (state) => state.product )
 
     return (
         <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
@@ -18,13 +21,13 @@ const Card = () => {
                 <div className='flex flex-row sm:grid gap-[12px] sm:gap-[16px] items-center'>
 
                 <div>
-                <img className='w-[100px] sm:w-[344px] aspect-square sm:aspect-16/9 object-cover object-center rounded-[10px]' src={e.picture} alt={e.alt} />
+                <img className='w-[100px] sm:w-[344px] aspect-square sm:aspect-16/9 object-cover object-center rounded-[10px]' src={productImg} alt="product" />
                 </div>
 
                 <div className='flex flex-col gap-[8px] sm:gap-[16px]'>
                 <div className='flex flex-col gap-[8px]'>
                 <HeadingSemiBold size="card" className="text-left">{e.title}</HeadingSemiBold>
-                <BodyMedium className="hidden sm:block sm:text-base text-dark-secondary">Mulai transformasi dengan instruktur professional, harga yang terjangkau, dan...</BodyMedium>
+                <BodyMedium className="hidden sm:block sm:text-base text-dark-secondary">{e.desc}</BodyMedium>
                 </div>
 
                 <div className='flex flex-row w-full items-center gap-[10px] '>
