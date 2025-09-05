@@ -39,7 +39,17 @@ const useProductStore = create(persist((set) => ({
         return {
             product : newData
         }
-    })
+    }),
+    deleteProduct : (idt) => set((state) => {
+        const newData = state.product.filter((item) => item.id !== idt )
+        return {
+            product : newData
+        }
+    }),
+    deleteAllProduct : () => set(() => ({
+        product : [],
+        lastId : 0
+    }))
 }), {
     name : 'product',
     storage : createJSONStorage( () => localStorage)

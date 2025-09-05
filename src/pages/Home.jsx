@@ -7,16 +7,15 @@ import HeadingBold from "../components/elements/HeadingBold.jsx"
 import NavBar from "../components/models/NavBar.jsx"
 import SecondaryButton from "../components/elements/SecondaryButton.jsx"
 import '../App.css'
-import Card from "../components/models/Card.jsx"
 import { useState } from "react"
 import { useNavigate } from "react-router"
 import useProductStore from "../store/useProductStore.js"
 import BodyLarge from "../components/elements/BodyLarge.jsx"
-import productImg from "../assets/card.png"
-import avaCard from "../assets/avacard.png"
 import ratings from "../assets/ratings.png"
+import { useImages } from "../store/images.js"
 
 const App = () => {
+  const {images, avatar} = useImages()
   const product = useProductStore( (state) => state.product )
   const [selectedCategory, setSelectedCategory] = useState("Semua Kelas")
   const categories = ["Semua Kelas", ...new Set(product.map((item) => item.category))]
@@ -25,8 +24,6 @@ const App = () => {
     selectedCategory === "Semua Kelas"
       ? product
       : product.filter((item) => item.category === selectedCategory)
-  
-  const navigate = useNavigate()
   
   return (
     <div className="flex flex-col w-full min-h-full justify-start items-center px-[20px] py-[28px] gap-[24px] sm:gap-[64px] 
@@ -51,7 +48,6 @@ const App = () => {
         </div>
 
         <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
-
           <NavBar>
             {categories.map((category, index) => (
               <li key={index} onClick={ () => setSelectedCategory(category)}
@@ -65,54 +61,59 @@ const App = () => {
 
           </NavBar>
         </div>
-        <div className="w-full">
 
+        <div className="w-full">
         <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
         sm:grid sm:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto] 2xl:grid-cols-[auto_auto_auto_auto] '>
-        {filteredProducts.map((e, index) => (
-            <div key={index} className="border border-other-border flex flex-col items-center justify-center w-[320px] sm:w-[384px] p-[16px] sm:p-[20px] 
-            gap-[16px] rounded-[10px] bg-white cursor-pointer">
-            <div className='flex flex-col gap-[9px] sm:gap-[16px] justify-center'>
-                <div className='flex flex-row sm:grid gap-[12px] sm:gap-[16px] items-center'>
+        {filteredProducts.map((e, index) => {
+            const randomIndex = Math.floor(Math.random() * images.length)
+            const randomImage = images[randomIndex]
+            const randomAvatar = avatar[randomIndex]
+            return (
+              <div key={index} className="border border-other-border flex flex-col items-center justify-center w-[320px] sm:w-[384px] p-[16px] sm:p-[20px] 
+              gap-[16px] rounded-[10px] bg-white ">
+              <div className='flex flex-col gap-[9px] sm:gap-[16px] justify-center'>
+                  <div className='flex flex-row sm:grid gap-[12px] sm:gap-[16px] items-center'>
 
-                <div>
-                <img className='w-[100px] sm:w-[344px] aspect-square sm:aspect-16/9 object-cover object-center rounded-[10px]' src={productImg} alt="product" />
-                </div>
+                  <div>
+                  <img className='w-[100px] sm:w-[344px] aspect-square sm:aspect-16/9 object-cover object-center rounded-[10px]' src={randomImage} alt="product" />
+                  </div>
 
-                <div className='flex flex-col gap-[8px] sm:gap-[16px]'>
-                <div className='flex flex-col gap-[8px]'>
-                <HeadingSemiBold size="card" className="text-left">{e.title}</HeadingSemiBold>
-                <BodyMedium className="hidden sm:block sm:text-base text-dark-secondary">{e.desc.length > 78 ? e.desc.slice(0, 78) + '...' : e.desc}</BodyMedium>
-                </div>
+                  <div className='flex flex-col gap-[8px] sm:gap-[16px]'>
+                  <div className='flex flex-col gap-[8px]'>
+                  <HeadingSemiBold size="card" className="text-left cursor-pointer">{e.title}</HeadingSemiBold>
+                  <BodyMedium className="hidden sm:block sm:text-base text-dark-secondary">{e.desc.length > 78 ? e.desc.slice(0, 78) + '...' : e.desc}</BodyMedium>
+                  </div>
 
-                <div className='flex flex-row w-full items-center gap-[10px] '>
-                    <img className='w-[36px] aspect-square sm:w-[40px] sm:aspect-square' src={avaCard} alt="Avatar" />
-                    <div className='flex flex-col'>
-                    <BodyMedium className="text-sm sm:text-base">Giyu Tomioka</BodyMedium>
-                    <div className='flex flex-row gap-[4px]'>
-                    <BodyRegular className="text-xs sm:text-sm text-dark-secondary">Senior Accountant</BodyRegular>
-                    <BodyRegular className="hidden sm:inline text-dark-secondary">di</BodyRegular>
-                    <BodyLarge className="text-dark-secondary hidden sm:inline">Gojek</BodyLarge>
-                    </div>
-                    </div>
-                </div>
-                </div>
+                  <div className='flex flex-row w-full items-center gap-[10px] '>
+                      <img className='w-[36px] aspect-square sm:w-[40px] sm:aspect-square' src={randomAvatar} alt="Avatar" />
+                      <div className='flex flex-col'>
+                      <BodyMedium className="text-sm sm:text-base cursor-pointer">Giyu Tomioka</BodyMedium>
+                      <div className='flex flex-row gap-[4px]'>
+                      <BodyRegular className="text-xs sm:text-sm text-dark-secondary">Senior Accountant</BodyRegular>
+                      <BodyRegular className="hidden sm:inline text-dark-secondary">di</BodyRegular>
+                      <BodyLarge className="text-dark-secondary hidden sm:inline">Gojek</BodyLarge>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
 
-                </div>
-                
-                <div className='flex flex-row items-center justify-between w-full'>
-                    <div className='flex flex-row items-center gap-[8px]'>
-                    <img src={ratings} alt="" />
-                    <BodyMedium className="text-xs sm:text-sm text-dark-secondary underline">3.5 (86)</BodyMedium>
-                    </div>
-                    <HeadingSemiBold size="price" className="text-primary">{e.price}</HeadingSemiBold>
-                </div>
-            </div>
-            </div>
-        ))}       
+                  </div>
+                  
+                  <div className='flex flex-row items-center justify-between w-full'>
+                      <div className='flex flex-row items-center gap-[8px]'>
+                      <img src={ratings} alt="" />
+                      <BodyMedium className="text-xs sm:text-sm text-dark-secondary underline">3.5 (86)</BodyMedium>
+                      </div>
+                      <HeadingSemiBold size="price" className="text-primary">{e.price}</HeadingSemiBold>
+                  </div>
+              </div>
+              </div>
+          )
+        })}       
         </div>
+        </div>  
 
-        </div>        
       </div>
       <div className="bg-[url('/assets/bgFooter.jpg')] bg-cover bg-center bg-no-repeat rounded-sm w-full ">
         <div className="border border-black/80 bg-black/80 rounded-sm text-base sm:text-[18px] flex-col flex items-center justify-center
