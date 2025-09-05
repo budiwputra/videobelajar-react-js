@@ -1,5 +1,4 @@
 import videoLogo from '../../assets/logo.png'
-import BodyLarge from '../elements/BodyLarge'
 import ButtonMenu from "../elements/ButtonMenu"
 import bottomLogo from '../../assets/bottom.png'
 import upLogo from '../../assets/up.png'

@@ -4,7 +4,6 @@ import hamburgerMenu from '../../assets/hamburger.png'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import logoutIcon from '../../assets/keluar.png'
-import BodyMedium from '../elements/BodyMedium'
 import ButtonMenu from '../elements/ButtonMenu'
 
 const HeaderHome = () => {
