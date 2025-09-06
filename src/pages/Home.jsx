@@ -8,7 +8,6 @@ import NavBar from "../components/models/NavBar.jsx"
 import SecondaryButton from "../components/elements/SecondaryButton.jsx"
 import '../App.css'
 import { useState } from "react"
-import { useNavigate } from "react-router"
 import useProductStore from "../store/useProductStore.js"
 import BodyLarge from "../components/elements/BodyLarge.jsx"
 import ratings from "../assets/ratings.png"
@@ -70,8 +69,8 @@ const App = () => {
             const randomImage = images[randomIndex]
             const randomAvatar = avatar[randomIndex]
             return (
-              <div key={index} className="border border-other-border flex flex-col items-center justify-center w-[320px] sm:w-[384px] p-[16px] sm:p-[20px] 
-              gap-[16px] rounded-[10px] bg-white ">
+              <div key={index} className="border border-other-border flex flex-col items-center justify-center w-full max-w-sm p-[16px] sm:p-[20px] 
+  gap-[16px] rounded-[10px] bg-white">
               <div className='flex flex-col gap-[9px] sm:gap-[16px] justify-center'>
                   <div className='flex flex-row sm:grid gap-[12px] sm:gap-[16px] items-center'>
 
@@ -88,11 +87,11 @@ const App = () => {
                   <div className='flex flex-row w-full items-center gap-[10px] '>
                       <img className='w-[36px] aspect-square sm:w-[40px] sm:aspect-square' src={randomAvatar} alt="Avatar" />
                       <div className='flex flex-col'>
-                      <BodyMedium className="text-sm sm:text-base cursor-pointer">Giyu Tomioka</BodyMedium>
-                      <div className='flex flex-row gap-[4px]'>
-                      <BodyRegular className="text-xs sm:text-sm text-dark-secondary">Senior Accountant</BodyRegular>
-                      <BodyRegular className="hidden sm:inline text-dark-secondary">di</BodyRegular>
-                      <BodyLarge className="text-dark-secondary hidden sm:inline">Gojek</BodyLarge>
+                      <BodyMedium className="text-sm sm:text-base cursor-pointer whitespace-nowrap">Giyu Tomioka</BodyMedium>
+                      <div className='flex flex-row gap-[4px] items-center'>
+                      <BodyRegular className="text-xs sm:text-sm text-dark-secondary whitespace-nowrap">Senior Accountant</BodyRegular>
+                      <BodyRegular className="hidden sm:text-sm sm:inline text-dark-secondary">di</BodyRegular>
+                      <BodyLarge className="text-dark-secondary hidden sm:inline sm:text-sm">Gojek</BodyLarge>
                       </div>
                       </div>
                   </div>
@@ -103,9 +102,9 @@ const App = () => {
                   <div className='flex flex-row items-center justify-between w-full'>
                       <div className='flex flex-row items-center gap-[8px]'>
                       <img src={ratings} alt="" />
-                      <BodyMedium className="text-xs sm:text-sm text-dark-secondary underline">3.5 (86)</BodyMedium>
+                      <BodyMedium className="text-xs sm:text-sm text-dark-secondary underline whitespace-nowrap">3.5 (86)</BodyMedium>
                       </div>
-                      <HeadingSemiBold size="price" className="text-primary">{e.price}</HeadingSemiBold>
+                      <HeadingSemiBold size="price" className="text-primary whitespace-nowrap">{e.price}</HeadingSemiBold>
                   </div>
               </div>
               </div>

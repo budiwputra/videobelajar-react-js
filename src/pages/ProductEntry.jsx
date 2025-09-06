@@ -1,6 +1,12 @@
 import useProductStore from "../store/useProductStore"
 import { useNavigate, useParams } from "react-router"
 import { useRef, useEffect } from "react"
+import InputText from "../components/elements/InputText"
+import BodyRegular from "../components/elements/BodyRegular"
+import Button from "../components/elements/Button"
+import SelectOption from "../components/elements/SelectOption"
+import SecondaryButton from "../components/elements/SecondaryButton"
+import TextArea from "../components/elements/TextArea"
 
 const ProductEntry = ({isEdit}) => {
     const navigate = useNavigate()
@@ -34,7 +40,6 @@ const ProductEntry = ({isEdit}) => {
     ]
 
     console.log("Params", id)
-    console.log(product)
 
     
     useEffect(() => {
@@ -52,7 +57,7 @@ const ProductEntry = ({isEdit}) => {
 
     return (
         <div className="h-full p-[36px] ">
-        <div className="h-full border border-other-border rounded-sm bg-gray-300 flex p-[36px]">
+        <div className="h-full rounded-sm flex p-[36px] flex-col gap-[20px] ">
             <form ref={formRef} onSubmit={(e) => {
                 e.preventDefault()
                 if (isEdit) {
@@ -72,24 +77,40 @@ const ProductEntry = ({isEdit}) => {
                 })
                 }
                 navigate('/dashboard/product-list')
-            }} className="flex flex-col gap-[10px]" action="">
-                <label htmlFor="">Title</label>
-                <input className="border" name="title" type="text" placeholder="Masukkan Title" />
-                <label htmlFor="">Category</label>
+            }} className="flex flex-col gap-[20px]" action="">
 
-                <select className="border" name="category" id="">
+                <BodyRegular>Title</BodyRegular>
+                <InputText name="title" placeholder="Masukkan Title" />
+                <BodyRegular>Category</BodyRegular>
+                <SelectOption name="category" id="category">
                     {optionCategory.map((item, index) => (
                         <option key={index} label={item.label} value={item.value}></option>
                     ))}
-                </select>
+                </SelectOption>
+                <BodyRegular>Description</BodyRegular>
+                <TextArea name="desc" id="desc"></TextArea>
+                <BodyRegular>Price</BodyRegular>
+                <InputText name="price" placeholder="Masukkan Harga"/>
+                <Button type="submit">{isEdit ? "Update" : "Submit"}</Button>
 
-                <label htmlFor="">Description</label>
-                <textarea className="border" 
-                defaultValue="Mulai transformasi dengan instruktur professional, harga yang terjangkau, dan program latihan yang disesuaikan dengan kebutuhan Anda" name="desc" id="desc"></textarea>
-                <label htmlFor="">Price</label>
-                <input placeholder="Masukkan harga" className="border" name="price" type="text" />
-                <button className="border" type="submit">{isEdit ? "Update" : "Submit"}</button>
+                {/* <label htmlFor="">Title</label>
+                <input className="border" name="title" type="text" placeholder="Masukkan Title" />
+                <label htmlFor="">Category</label>
+                <select className="border" name="category" id="category">
+                {optionCategory.map((item, index) => (
+                    <option key={index} label={item.label} value={item.value}></option>
+                    ))}
+                    </select>
+                    <label htmlFor="">Description</label>
+                    <textarea className="border" 
+                    defaultValue="Mulai transformasi dengan instruktur professional, harga yang terjangkau, dan program latihan yang disesuaikan dengan kebutuhan Anda" 
+                    name="desc" id="desc"></textarea>
+                    <label htmlFor="">Price</label>
+                    <input placeholder="Masukkan harga" className="border" name="price" type="text" />
+                    <button className="border" type="submit">{isEdit ? "Update" : "Submit"}</button> */}
+
             </form>
+            <SecondaryButton onClick={() => navigate('/dashboard/product-list')}>Cancel</SecondaryButton>
         </div>
         </div>
     )

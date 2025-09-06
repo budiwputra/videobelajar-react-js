@@ -1,7 +1,7 @@
 const   BodyRegular = ({children, className}) => {
     return (
             <p className={`font-normal text-sm leading-[140%] tracking-[0.2px] sm:text-base 
-            ${className ?? "text-dark-secondary"}`}>{children}</p>
+            ${className ?? "text-dark-secondary"}`} >{children}</p>
         
     )
 }
