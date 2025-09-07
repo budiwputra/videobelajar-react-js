@@ -15,20 +15,21 @@ import { useImages } from "../store/images.js"
 
 const App = () => {
   const {images, avatar} = useImages()
-  const product = useProductStore( (state) => state.product )
   const [selectedCategory, setSelectedCategory] = useState("Semua Kelas")
+  const product = useProductStore( (state) => state.product )
   const categories = ["Semua Kelas", ...new Set(product.map((item) => item.category))]
   
   const filteredProducts =
-    selectedCategory === "Semua Kelas"
-      ? product
-      : product.filter((item) => item.category === selectedCategory)
+  selectedCategory === "Semua Kelas"
+  ? product
+  : product.filter((item) => item.category === selectedCategory)
   
   return (
-    <div className="flex flex-col w-full min-h-full justify-start items-center px-[20px] py-[28px] gap-[24px] sm:gap-[64px] 
-    sm:px-[120px] sm:py-[64px] bg-background" >
+    <div className="flex flex-col w-full min-h-full justify-start items-center 
+    px-[20px] py-[28px] gap-[24px] sm:gap-[64px] sm:px-[120px] sm:py-[64px] bg-background" >
       <div className="bg-[url('/assets/bgHero.jpg')] rounded-[10px] bg-cover bg-center bg-no-repeat">
-      <div className="border border-black/80 rounded-[10px] flex flex-col justify-center items-center px-[20px] py-[37px] w-full 
+      <div className="border border-black/80 rounded-[10px] flex flex-col 
+      justify-center items-center px-[20px] py-[37px] w-full 
       sm:px-[140px] sm:pt-[68.5px] sm:pb-[50.5px] bg-black/80 gap-[12px]" >
         <HeadingBold className="text-center text-2xl sm:text-5xl">
           Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video Interaktif!</HeadingBold>
@@ -39,13 +40,11 @@ const App = () => {
         <Button className="w-fit font-normal sm:font-bold py-[10px] px-[8px] sm:px-[16px] mt-[12px]">Temukan Video Course untuk Dipelajari!</Button>
       </div>
       </div>
-
       <div className="flex flex-col w-full gap-[32px] ">
         <div className="flex flex-col w-full gap-[10px]">
         <HeadingSemiBold className="text-left">Koleksi Video Pembelajaran Unggulan</HeadingSemiBold>
         <BodyMedium className="text-left text-dark-secondary text-sm sm:text-base">Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</BodyMedium>
         </div>
-
         <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
           <NavBar>
             {categories.map((category, index) => (
@@ -54,10 +53,10 @@ const App = () => {
                 "text-tertiary-default flex flex-col gap-[12px]" : 
                 ""}`}
               >{category}
-              {selectedCategory === category && <span className="inline border-3 rounded-sm w-[50px]"></span>}
+              {selectedCategory === category && 
+              <span className="inline border-3 rounded-sm w-[50px]"></span>}
               </li>
             ))}
-
           </NavBar>
         </div>
 

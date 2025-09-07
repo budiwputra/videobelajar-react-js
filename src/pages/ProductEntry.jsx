@@ -56,8 +56,9 @@ const ProductEntry = ({isEdit}) => {
     }, [])
 
     return (
-        <div className="h-full p-[36px] ">
-        <div className="h-full rounded-sm flex p-[36px] flex-col gap-[20px] ">
+        <div className="h-full p-[36px]">
+        <div className="h-full rounded-sm p-[36px]">
+            <div className="sm:w-[590px] flex flex-col gap-[20px]">
             <form ref={formRef} onSubmit={(e) => {
                 e.preventDefault()
                 if (isEdit) {
@@ -111,6 +112,7 @@ const ProductEntry = ({isEdit}) => {
 
             </form>
             <SecondaryButton onClick={() => navigate('/dashboard/product-list')}>Cancel</SecondaryButton>
+            </div>
         </div>
         </div>
     )
