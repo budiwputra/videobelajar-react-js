@@ -10,6 +10,8 @@ import HomeLayout from './layouts/HomeLayout.jsx'
 import DashboardLayout from './layouts/DashboardLayout.jsx'
 import AuthLayout from './layouts/AuthLayout.jsx'
 import Text from './pages/Text.jsx'
+import ListProduct from './pages/ListProduct.jsx'
+import EntryProduct from './pages/EntryProduct.jsx'
 
 const App = () => {
     return (
@@ -31,6 +33,10 @@ const App = () => {
             <Route path='product-entry' element={<ProductEntry/>}/>
             <Route path='product-edit/:id' element={<ProductEntry isEdit/>}/>
             <Route path='product-list' element={<ProductList/>}/>
+
+            <Route path='list-product' element={<ListProduct/>}/>
+            <Route path='entry-product' element={<EntryProduct/>}/>
+            <Route path='update-product/:id' element={<EntryProduct isUpdate/>}/>
             </Route>
 
             <Route path='/text' element={<Text/>}/>
