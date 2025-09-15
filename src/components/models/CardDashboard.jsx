@@ -12,7 +12,6 @@ const Card = () => {
     const {images, avatar} = useImages()
     const product = useProductStore( (state) => state.product)
     const deleteProduct = useProductStore((state) => state.deleteProduct)
-    const deleteAllProduct = useProductStore((state) => state.deleteAllProduct)
 
     return (
         <div className='flex flex-col gap-[12px] w-full'>
@@ -20,8 +19,7 @@ const Card = () => {
             <button className='border rounded-sm p-1 cursor-pointer hover:text-primary'
             onClick={() => navigate('/dashboard/product-entry')}>Add Product</button>
             <button hidden={product.length === 0} 
-            className='border rounded-sm p-1 cursor-pointer hover:text-error-default'
-            onClick={() => deleteAllProduct()}>Delete All Product</button>
+            className='border rounded-sm p-1 cursor-pointer hover:text-error-default'>Delete All Product</button>
         </div>
         <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
         sm:grid sm:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto] '>

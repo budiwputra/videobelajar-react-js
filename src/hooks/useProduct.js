@@ -61,27 +61,6 @@ export const useProduct = () => {
         }
     }
 
-const deleteAllProduct = async () => {
-  try {
-    // Ambil snapshot awal produk
-    const snapshot = [...product];
-
-    // Hapus semua produk berdasarkan snapshot
-await Promise.all(
-  snapshot.map(async (item) => {
-    await api.delete(`/products/${item.id}`);
-    console.log("Deleted:", item.id);
-  })
-);
-
-    // Setelah semua berhasil, kosongkan state
-    setProduct([]);
-  } catch (error) {
-    console.error("Gagal hapus semua produk:", error);
-  }
-};
-
-
     useEffect(() => {
         getProduct()
     },[])
@@ -93,7 +72,6 @@ await Promise.all(
         addProduct,
         updateProduct,
         deleteProduct,
-        deleteAllProduct,
         product
 
     }
