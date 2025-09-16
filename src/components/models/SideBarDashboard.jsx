@@ -35,7 +35,7 @@ const SideBarDashboard = () => {
                 )}
 
                 <ButtonMenu onClick={ () => toggleMenu("productState") } className="hidden w-full text-left py-[16px] pl-[36px] pr-[16px] hover:bg-secondary 
-                flex justify-between">STATE Product <span>{openMenu === "productState" ? 
+                justify-between">STATE Product <span>{openMenu === "productState" ? 
                 <img src={upLogo} alt="Up" /> : 
                 <img src={bottomLogo} alt="Down" />}</span>                 
                 </ButtonMenu>
