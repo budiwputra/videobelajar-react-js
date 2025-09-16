@@ -5,37 +5,31 @@ import BodyRegular from '../elements/BodyRegular.jsx'
 import HeadingSemiBold from '../elements/HeadingSemiBold.jsx'
 import { useNavigate} from 'react-router'
 import { useImages } from "../../store/images.js"
-import {useProduct} from "../../hooks/useProduct.js"
 import Button from '../elements/Button.jsx'
 import SecondaryButton from '../elements/SecondaryButton.jsx'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getData, createData, deleteData } from '../../store/redux/productReducer.js'
 
 const Card = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const {images, avatar} = useImages()
-    const {product, isLoading, isError,getProduct , deleteProduct} = useProduct()
+    const products = useSelector((state) => state.products)
+
+    useEffect(() => {
+        dispatch(getData())   
+    }, [dispatch])
 
     return (
 
         <div className='flex flex-col gap-[12px] w-full'>
-            {isLoading && 
-            <div className='flex justify-center'>
-                <p>Loading...</p>
-            </div>          
-            }
 
-            {isError && (
-                <div className='flex flex-col justify-center items-center'>
-                    <p>Error</p>
-                    <button className='border' onClick={()=> getProduct()}>Reload</button>
-                </div>)
-            }
-
-            {(!isLoading && !isError) && (
                 <div>
                     <div className='flex flex-row justify-between gap-[12px]'>
                         {/* <button className='border rounded-sm p-1 cursor-pointer hover:text-primary'
                         onClick={() => navigate('/dashboard/entry-product')}>Add Product</button> */}                      
-                        <Button onClick={() => navigate('/dashboard/entry-product') } >Add Product</Button>
+                        <Button onClick={() => navigate('/dashboard/redux-entry') } >Add Product</Button>
                         {/* <button hidden={product.length === 0} 
                         className='border rounded-sm p-1 cursor-pointer hover:text-error-default'
                         >Delete All Product</button> */}
@@ -44,7 +38,7 @@ const Card = () => {
                     <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
                     sm:grid sm:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto]'>
 
-                    {product.map((item, index) => {
+                    {products.map((item, index) => {
                         const randomIndex = Math.floor(Math.random() * images.length)
                         const randomImage = images[randomIndex]
                         const randomAvatar = avatar[randomIndex]        
@@ -87,8 +81,8 @@ const Card = () => {
                                     <HeadingSemiBold size="price" className="text-primary">{item.price}</HeadingSemiBold>
                                 </div>
                                 <div className='flex flex-row justify-between'>
-                                    <button className='cursor-pointer hover:underline hover:text-secondary' onClick={() => navigate(`/dashboard/update-product/${item.id}`) }>Edit</button>
-                                    <button className='cursor-pointer hover:underline hover:text-error-default' onClick={() => deleteProduct(item.id)}>Delete</button>
+                                    <button className='cursor-pointer hover:underline hover:text-secondary' onClick={() => navigate(`/dashboard/redux-entry/${item.id}`) }>Edit</button>
+                                    <button className='cursor-pointer hover:underline hover:text-error-default' onClick={() => dispatch(deleteData(item.id))}>Delete</button>
                                 </div>
                             </div>
                             </div>
@@ -96,8 +90,7 @@ const Card = () => {
                     })}       
                     </div>
                 </div>
-            ) 
-            }
+
         </div>
 
     )
