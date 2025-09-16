@@ -28,21 +28,21 @@ const SideBarDashboard = () => {
                 </ButtonMenu>
                 {openMenu === "productRedux" && (
                     <div>                      
-                        <ButtonMenu onClick={() => {navigate('redux-entry')}} className="w-full text-left py-[16px] px-[36px]
+                        <ButtonMenu onClick={() => {navigate('redux-entry')}} className="hidden w-full text-left py-[16px] px-[36px]
                         hover:bg-secondary bg-secondary-80">Product Entry</ButtonMenu>
                         <ButtonMenu onClick={() => {navigate('redux-list')}} className="block w-full text-left py-[16px] px-[36px] 
                         hover:bg-secondary bg-secondary-80">Product List</ButtonMenu>
                     </div>
                 )}
 
-                <ButtonMenu onClick={ () => toggleMenu("productApi") } className="w-full text-left py-[16px] pl-[36px] pr-[16px] hover:bg-secondary 
+                <ButtonMenu onClick={ () => toggleMenu("productApi") } className=" w-full text-left py-[16px] pl-[36px] pr-[16px] hover:bg-secondary 
                 flex justify-between">API Product <span>{openMenu === "productApi" ? 
                 <img src={upLogo} alt="Up" /> : 
                 <img src={bottomLogo} alt="Down" />}</span>                 
                 </ButtonMenu>
                 {openMenu === "productApi" && (
                     <div>                      
-                        <ButtonMenu onClick={() => {navigate('entry-product')}} className="w-full text-left py-[16px] px-[36px]
+                        <ButtonMenu onClick={() => {navigate('entry-product')}} className="hidden w-full text-left py-[16px] px-[36px]
                         hover:bg-secondary bg-secondary-80">Product Entry</ButtonMenu>
                         <ButtonMenu onClick={() => {navigate('list-product')}} className="block w-full text-left py-[16px] px-[36px] 
                         hover:bg-secondary bg-secondary-80">Product List</ButtonMenu>

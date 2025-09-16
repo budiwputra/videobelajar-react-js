@@ -1,43 +1,64 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getProduct, createProduct, updateProduct, deleteProduct } from "../../services/api/product";
+import { 
+    getProduct, 
+    createProduct, 
+    updateProduct, 
+    deleteProduct } from "../../services/api/product";
 
-export const getData = createAsyncThunk("products/getData", async () => {
+export const getData = createAsyncThunk("products/getData", 
+    async () => {
     return await getProduct()
 })
 
-export const createData = createAsyncThunk("products/createData", async (payload) => {
+export const createData = createAsyncThunk("products/createData", 
+    async (payload) => {
     return await createProduct(payload)
 })
 
-export const updateData = createAsyncThunk("products/editData", async ({id, payload}) => {
+export const updateData = createAsyncThunk("products/editData", 
+    async ({id, payload}) => {
     return await updateProduct(id, payload)
 })
 
-export const deleteData = createAsyncThunk("products/deleteData", async (id) => {
+export const deleteData = createAsyncThunk("products/deleteData", 
+    async (id) => {
     await deleteProduct(id)
     return id
 })
 
 export const productSlice = createSlice({
     name : "products",
-    initialState : [],
+    initialState : {
+        value : [],
+        isLoading : false,
+        isError : false    
+    },
     reducers : {},
     extraReducers : (builder) => {
         builder
+        .addCase(getData.pending, (state) => {
+            state.isLoading = true
+            state.isError = false
+        })
         .addCase(getData.fulfilled, (state, action) => {
-            return action.payload
+            state.isLoading = false
+            state.value = action.payload
+        })
+        .addCase(getData.rejected, (state) => {
+            state.isLoading = false
+            state.isError = true
         })
         .addCase(createData.fulfilled, (state, action) => {
-            state.push(action.payload)
+            state.value.push(action.payload)
         })
         .addCase(updateData.fulfilled, (state, action) => {
-            const index = state.findIndex((item) => item.id === action.payload.id)
+            const index = state.value.findIndex((item) => item.id === action.payload.id)
             if (index !== -1) {
-                state[index] = {...state[index], ...action.payload }
+                state.value[index] = {...state.value[index], ...action.payload }
             }
         })
         .addCase(deleteData.fulfilled, (state, action) => {
-            return state.filter((item) => item.id !== action.payload)
+        state.value = state.value.filter((item) => item.id !== action.payload)
         })
     },
 })

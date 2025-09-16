@@ -15,7 +15,7 @@ const ReduxEntry = ({isUpdate}) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const products = useSelector((state) => state.products)
+    const {value : products, isLoading, isError} = useSelector((state) => state.products)
 
     useEffect(() => {
         if (isUpdate) {

@@ -9,13 +9,13 @@ import Button from '../elements/Button.jsx'
 import SecondaryButton from '../elements/SecondaryButton.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { getData, createData, deleteData } from '../../store/redux/productReducer.js'
+import { getData, deleteData } from '../../store/redux/productReducer.js'
 
 const Card = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {images, avatar} = useImages()
-    const products = useSelector((state) => state.products)
+    const {value : products, isLoading, isError} = useSelector((state) => state.products)
 
     useEffect(() => {
         dispatch(getData())   
@@ -24,7 +24,20 @@ const Card = () => {
     return (
 
         <div className='flex flex-col gap-[12px] w-full'>
+            {isLoading && 
+                <div className='flex justify-center'>
+                    <p>Loading...</p>
+                </div>          
+            }
 
+            {isError && (
+                <div className='flex flex-col justify-center items-center'>
+                    <p>Error</p>
+                    <button className='border p-1 cursor-pointer' onClick={()=> getData()}>Reload</button>
+                </div>)
+            }
+
+            {(!isLoading && !isError) && (
                 <div>
                     <div className='flex flex-row justify-between gap-[12px]'>
                         {/* <button className='border rounded-sm p-1 cursor-pointer hover:text-primary'
@@ -90,6 +103,7 @@ const Card = () => {
                     })}       
                     </div>
                 </div>
+            )}
 
         </div>
 
