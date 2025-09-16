@@ -7,7 +7,6 @@ import { useNavigate} from 'react-router'
 import { useImages } from "../../store/images.js"
 import {useProduct} from "../../hooks/useProduct.js"
 import Button from '../elements/Button.jsx'
-import SecondaryButton from '../elements/SecondaryButton.jsx'
 
 const Card = () => {
     const navigate = useNavigate()
@@ -32,7 +31,7 @@ const Card = () => {
 
             {(!isLoading && !isError) && (
                 <div>
-                    <div className='flex flex-row justify-between gap-[12px] border'>
+                    <div className='flex flex-row justify-between gap-[12px]'>
                         {/* <button className='border rounded-sm p-1 cursor-pointer hover:text-primary'
                         onClick={() => navigate('/dashboard/entry-product')}>Add Product</button> */}                      
                         <Button onClick={() => navigate('/dashboard/entry-product') } >Add Product</Button>
