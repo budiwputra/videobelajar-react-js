@@ -4,7 +4,6 @@ import InputText from "../components/elements/InputText"
 import BodyRegular from "../components/elements/BodyRegular"
 import Button from "../components/elements/Button"
 import SelectOption from "../components/elements/SelectOption"
-import SecondaryButton from "../components/elements/SecondaryButton"
 import TextArea from "../components/elements/TextArea"
 import { useProduct } from "../hooks/useProduct"
 
@@ -37,16 +36,10 @@ const EntryProduct = ({isUpdate}) => {
     value : "Digital & Teknologi"    
     }]
 
-    console.log("Params", id)
-
     useEffect(() => {
         if (isUpdate && product.length  > 0 ) {
             const productItem = product.find(item => item.id === id)
-            if (productItem) {
-                console.log("item : ", productItem.id)
-            } else {
-                console.log("Produc id : ", id , "not found")
-            }
+
             formRef.current.title.value = productItem.title,
             formRef.current.category.value = productItem.category,
             formRef.current.desc.value = productItem.desc,

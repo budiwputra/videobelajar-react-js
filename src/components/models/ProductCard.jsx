@@ -7,12 +7,16 @@ import { useNavigate} from 'react-router'
 import { useImages } from "../../store/images.js"
 import {useProduct} from "../../hooks/useProduct.js"
 import Button from '../elements/Button.jsx'
-import SecondaryButton from '../elements/SecondaryButton.jsx'
+import { useEffect } from 'react'
 
 const Card = () => {
     const navigate = useNavigate()
     const {images, avatar} = useImages()
-    const {product, isLoading, isError,getProduct , deleteProduct, deleteAllProduct} = useProduct()
+    const {product, isLoading, isError,getProduct , deleteProduct} = useProduct()
+
+    useEffect(() => {
+        getProduct()
+    }, [])
 
     return (
 
@@ -39,7 +43,6 @@ const Card = () => {
                         {/* <button hidden={product.length === 0} 
                         className='border rounded-sm p-1 cursor-pointer hover:text-error-default'
                         >Delete All Product</button> */}
-                        <SecondaryButton onClick={() => deleteAllProduct()} hidden>Delete All </SecondaryButton>
                     </div>
                     <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
                     sm:grid sm:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto]'>
