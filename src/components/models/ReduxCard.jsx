@@ -81,7 +81,7 @@ const Card = () => {
                                     <HeadingSemiBold size="price" className="text-primary">{item.price}</HeadingSemiBold>
                                 </div>
                                 <div className='flex flex-row justify-between'>
-                                    <button className='cursor-pointer hover:underline hover:text-secondary' onClick={() => navigate(`/dashboard/redux-entry/${item.id}`) }>Edit</button>
+                                    <button className='cursor-pointer hover:underline hover:text-secondary' onClick={() => navigate(`/dashboard/redux-update/${item.id}`) }>Edit</button>
                                     <button className='cursor-pointer hover:underline hover:text-error-default' onClick={() => dispatch(deleteData(item.id))}>Delete</button>
                                 </div>
                             </div>
