@@ -7,11 +7,16 @@ import { useNavigate} from 'react-router'
 import { useImages } from "../../store/images.js"
 import {useProduct} from "../../hooks/useProduct.js"
 import Button from '../elements/Button.jsx'
+import { useEffect } from 'react'
 
 const Card = () => {
     const navigate = useNavigate()
     const {images, avatar} = useImages()
-    const {product, isLoading, isError,getProduct , deleteProduct} = useProduct()
+    const {product, isLoading, isError, getProduct , deleteProduct} = useProduct()
+
+    useEffect(() => {
+        getProduct()
+    }, [])
 
     return (
 
