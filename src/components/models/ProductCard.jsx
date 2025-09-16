@@ -12,7 +12,7 @@ import SecondaryButton from '../elements/SecondaryButton.jsx'
 const Card = () => {
     const navigate = useNavigate()
     const {images, avatar} = useImages()
-    const {product, isLoading, isError,getProduct , deleteProduct, deleteAllProduct} = useProduct()
+    const {product, isLoading, isError,getProduct , deleteProduct} = useProduct()
 
     return (
 
@@ -32,14 +32,13 @@ const Card = () => {
 
             {(!isLoading && !isError) && (
                 <div>
-                    <div className='flex flex-row justify-between gap-[12px]'>
+                    <div className='flex flex-row justify-between gap-[12px] border'>
                         {/* <button className='border rounded-sm p-1 cursor-pointer hover:text-primary'
                         onClick={() => navigate('/dashboard/entry-product')}>Add Product</button> */}                      
                         <Button onClick={() => navigate('/dashboard/entry-product') } >Add Product</Button>
                         {/* <button hidden={product.length === 0} 
                         className='border rounded-sm p-1 cursor-pointer hover:text-error-default'
                         >Delete All Product</button> */}
-                        <SecondaryButton onClick={() => deleteAllProduct()} hidden>Delete All </SecondaryButton>
                     </div>
                     <div className='flex flex-col items-center justify-center w-full gap-[20px] sm:gap-[24px] 
                     sm:grid sm:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto]'>
