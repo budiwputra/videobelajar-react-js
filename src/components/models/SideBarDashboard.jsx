@@ -27,7 +27,7 @@ const SideBarDashboard = () => {
                 </ButtonMenu>
                 {openMenu === "productApi" && (
                     <div>                      
-                        <ButtonMenu onClick={() => {navigate('entry-product')}} className="w-full text-left py-[16px] px-[36px]
+                        <ButtonMenu onClick={() => {navigate('entry-product')}} className="hidden w-full text-left py-[16px] px-[36px]
                         hover:bg-secondary bg-secondary-80">Product Entry</ButtonMenu>
                         <ButtonMenu onClick={() => {navigate('list-product')}} className="block w-full text-left py-[16px] px-[36px] 
                         hover:bg-secondary bg-secondary-80">Product List</ButtonMenu>
