@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { getCourse, 
     createCourse, 
     updateCourse, 
-    deleteCourse } from "../../services/api/course";
+    deleteCourse, getCourseById } from "../../services/api/course"
 
 export const getData = createAsyncThunk("course/getData", 
     async (params) => {
@@ -21,15 +21,20 @@ export const deleteData = createAsyncThunk("course/deleteData",
     await deleteCourse(id)
     return id })
 
+export const getDataById = createAsyncThunk(
+    "course/getCourseById",
+    async (id, payload) => {
+        return await getCourseById(id, payload)
+    }
+)
+
 export const courseSlice = createSlice({
     name : "course",
     initialState : {
-    data: [],       // course list
-    total: 0,
-    totalPages: 0,
-    currentPage: 1,
-    isLoading: false,
-    isError: false,
+        value : [],
+        courseDetail: null,
+        isLoading : false,
+        isError : false    
     },
     reducers : {},
 
@@ -40,27 +45,39 @@ export const courseSlice = createSlice({
             state.isError = false })
 
         .addCase(getData.fulfilled, (state, action) => {
-            const { data, total, totalPages, currentPage } = action.payload;
-            state.data = data;
-            state.total = total;
-            state.totalPages = totalPages;
-            state.currentPage = currentPage;
-            state.isLoading = false;
-        })
+            state.isLoading = false
+            state.value = action.payload })
 
         .addCase(getData.rejected, (state) => {
             state.isLoading = false
             state.isError = true })
 
+        .addCase(getDataById.pending, (state) => {
+        state.isLoading = true
+        })
+        .addCase(getDataById.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.courseDetail = action.payload
+            console.log("reducerCourse: ", action.payload)
+        })
+        .addCase(getDataById.rejected, (state) => {
+            state.isLoading = false
+            state.isError = true
+        })
         .addCase(createData.fulfilled, (state, action) => {
-            state.data.push(action.payload)})
+            state.value.push(action.payload)})
 
         .addCase(updateData.fulfilled, (state, action) => {
-            const index = state.data.findIndex((item) => item.id === action.payload.id)
-            if (index !== -1) {
-                state.data[index] = {...state.data[index], ...action.payload }}})
+        const index = state.value.findIndex(
+            item => item.course_id === action.payload.course_id
+        )
+        if (index !== -1) {
+            state.value[index] = action.payload
+        }
+        })
+
         .addCase(deleteData.fulfilled, (state, action) => {
-        state.data = state.data.filter((item) => item.id !== action.payload)})
+        state.value = state.value.filter((item) => item.course_id !== action.payload)})
     },})
 
 export default courseSlice.reducer

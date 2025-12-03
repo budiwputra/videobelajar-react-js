@@ -9,13 +9,13 @@ import Button from '../elements/Button.jsx'
 import SecondaryButton from '../elements/SecondaryButton.jsx'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getData, deleteData } from "../../store/redux/courseReducer.js";
+import { getData, deleteData } from "../../store/redux/courseReducer.js"
 
 const Card = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {images, avatar} = useImages()
-    const { data: course, isLoading, isError } = useSelector((state) => state.course);
+    const { value: course, isLoading, isError } = useSelector((state) => state.course)
 
     useEffect(() => {
         dispatch(getData())   

@@ -1,24 +1,31 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { getAllUsers, 
     createUser, 
     updateUser, 
     deleteUser,
-    loginUser} from "../../services/api/user";
+    loginUser,
+    getMe} from "../../services/api/user"
 
 export const getUserData = createAsyncThunk("user/getUserData", 
     async () => {
     return await getAllUsers()})
+
+export const fetchMe = createAsyncThunk("user/fetchMe",
+    async () => {
+    return await getMe()})
 
 export const loginUserData = createAsyncThunk(
     "user/loginUserData",
     async (payload, { rejectWithValue }) => {
         try {
         const res = await loginUser(payload); 
+
         localStorage.setItem("token", res.data.token);
+
         return res; 
         } catch (err) {
         const errorMsg =
-            err?.response?.data?.message || err.message || "Login gagal";
+            err?.response?.data?.message || err.message || "Login gagal"
         return rejectWithValue(errorMsg);
         }
     }
@@ -32,7 +39,7 @@ export const createUserData = createAsyncThunk(
         return res;
         } catch (err) {
         const errorMsg =
-            err?.response?.data?.message || err.message || "Terjadi kesalahan server.";
+            err?.response?.data?.message || err.message || "Terjadi kesalahan server."
         return rejectWithValue(errorMsg);
         }
     }
@@ -48,56 +55,91 @@ export const deleteUserData = createAsyncThunk("user/deleteUserData",
     return id })
 
 export const userSlice = createSlice({
-    name : "user",
-    initialState : {
-        data : [],
-        status : "idle",
-        error : null   
+    name: "user",
+    initialState: {
+        users: [],
+        currentUser: null,
+        token: localStorage.getItem("token"),
+        isLogin: false,
+        status: "idle",
+        isLoading : false,
+        isError : false,
+        error: null,
     },
-    reducers : {},
+    reducers : {
+
+    },
 
     extraReducers : (builder) => {
         builder
-        .addCase(getUserData.pending, (state) => {
-            state.status = "loading" })
+    .addCase(loginUserData.pending, (state) => {
+        state.status = "loading";
+        })
+    .addCase(loginUserData.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.currentUser = action.payload.data.user;
+        state.token = action.payload.data.token;
+        state.isLogin = true;
+        })
+    .addCase(loginUserData.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+    })
 
-        .addCase(getUserData.fulfilled, (state, action) => {
-            state.status = "succeeded";
-            state.data = action.payload })
+    .addCase(fetchMe.pending, (state) => {
+        state.isLoading = true
+        state.isError = false
 
-        .addCase(getUserData.rejected, (state) => {
-            state.status = "failed" })
+    })
+    .addCase(fetchMe.fulfilled, (state, action) => {
+        state.isLoading = false,
+        state.currentUser = action.payload;
         
-        .addCase(loginUserData.pending, (state) => {
+    })
+    .addCase(fetchMe.rejected, (state) => {
+        state.isLoading = false,
+        state.isError = true
+    })
+    .addCase(getUserData.fulfilled, (state, action) => {
+        state.users = action.payload.data;
+    })
+
+
+    .addCase(createUserData.pending, (state) => {
         state.status = "loading";
         })
-        .addCase(loginUserData.fulfilled, (state, action) => {
+    .addCase(createUserData.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.data = action.payload.user;
+        console.log("data action",action.payload)
+        state.users.push(action.payload.data);
         })
-        .addCase(loginUserData.rejected, (state, action) => {
+    .addCase(createUserData.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
         })
 
+    .addCase(updateUserData.pending, (state) => {
+            state.isLoading = true;
+        })
 
-        .addCase(createUserData.pending, (state) => {
-        state.status = "loading";
-        })
-        .addCase(createUserData.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.data.push(action.payload.data);
-        })
-        .addCase(createUserData.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
-        })
-        .addCase(updateUserData.fulfilled, (state, action) => {
-            const index = state.data.findIndex((item) => item.id === action.payload.id)
+    .addCase(updateUserData.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.isError = false;
+
+            const index = state.users.findIndex(
+                (u) => u.user_id === action.payload.data.user_id
+            );
             if (index !== -1) {
-                state.data[index] = {...state.data[index], ...action.payload }}})
+                state.users[index] = action.payload.data;
+            }
+        })
 
-        .addCase(deleteUserData.fulfilled, (state, action) => {
+    .addCase(updateUserData.rejected, (state) => {
+            state.isLoading = false;
+            state.isError = true;
+        })
+
+    .addCase(deleteUserData.fulfilled, (state, action) => {
         state.data = state.data.filter((item) => item.id !== action.payload)})
     },})
 

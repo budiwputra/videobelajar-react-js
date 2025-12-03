@@ -1,21 +1,16 @@
 import api from "./client"
 
 export const getCourse = (params) => 
-    api.get("/course", {params}).then((r) => {console.log("getCourse response:", r.data);
-    return r.data})
-        
+    api.get("/course", {params}).then((r) => r.data.data)
+
 export const getCourseById = (id) =>
-    api.get(`/course/${id}`).then((r) => r.data)
+    api.get(`/course/${id}`).then((r) => r.data.data)
 
 export const createCourse = (payload) =>
-    api.post("/course", payload).then((r) => {console.log("createCourse response:", r.data); 
-        return r.data})
+    api.post("/course", payload).then((r) => r.data.data)
 
 export const updateCourse = (id, payload) =>
-    api.put(`/course/${id}`, payload).then((r) => {console.log("updateCourse response:", r.data); 
-        return r.data})
+    api.put(`/course/${id}`, payload).then((r) => r.data.data)
 
 export const deleteCourse = (id) =>
-    api.delete(`/course/${id}`).then((r) => {console.log("deleteCourse response:", r.data);
-        return r.data})
-
+    api.delete(`/course/${id}`).then((r) => r.data.data)

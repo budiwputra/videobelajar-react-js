@@ -6,29 +6,37 @@ import InputText from "../components/elements/InputText"
 import SelectOption from "../components/elements/SelectOption"
 import TextArea from "../components/elements/TextArea"
 
-import { createData, updateData} from "../store/redux/courseReducer"
+import { createData, updateData, getDataById} from "../store/redux/courseReducer"
 import { useSelector, useDispatch } from "react-redux"
 
 const ReduxEntry = ({isUpdate}) => {
     const {id} = useParams()
-    const formRef = useRef()
+    const formRef = useRef(null)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const {data : course} = useSelector((state) => state.course)
+    const {courseDetail, isLoading, isError} = useSelector((state) => state.course)
+    console.log("dataCourseDetail:", courseDetail)
+
+    useEffect(() => {
+
+        if (isUpdate && id) {
+        dispatch(getDataById(id))
+        }
+    }, [id])
 
     useEffect(() => {
         if (isUpdate) {
-            const productItem = course.find(item => item.course_id === id)
-            formRef.current.title.value = productItem.title,
-            formRef.current.category.value = productItem.category,
-            formRef.current.desc.value = productItem.description,
-            formRef.current.price.value = productItem.price,
-            formRef.current.language.value = productItem.language
+            if (!courseDetail || !formRef.current) return
+            formRef.current.title.value = courseDetail.title
+            formRef.current.category.value = courseDetail.category
+            formRef.current.description.value = courseDetail.description
+            formRef.current.price.value = courseDetail.price
+            formRef.current.language.value = courseDetail.language 
         } else {
             if (formRef.current) formRef.current.reset()
         }
-    }, [isUpdate, id, course])
+    }, [courseDetail])
 
     const optionCategory = [
     {
@@ -55,7 +63,10 @@ const ReduxEntry = ({isUpdate}) => {
     return (
 
         <div className="h-full p-[36px]">
-            <div className="h-full rounded-sm p-[36px]">
+            <div className="h-full   rounded-sm p-[36px]">
+                {isLoading && (<span>Loading...</span>)}
+                {isError && (<span>Error</span>)}
+                {(!isLoading && !isError) && (
                 <div className="sm:w-[590px] flex flex-col gap-[20px]">
                     <form ref={formRef} className="flex flex-col gap-[20px]" action=""
                     onSubmit={(e) => {
@@ -64,7 +75,7 @@ const ReduxEntry = ({isUpdate}) => {
                             dispatch(updateData({id, payload : {
                                 title : e.target.title.value,
                                 category : e.target.category.value,
-                                description : e.target.desc.value,
+                                description : e.target.description.value,
                                 price : e.target.price.value,
                                 language : e.target.language.value
                             }}))
@@ -72,7 +83,7 @@ const ReduxEntry = ({isUpdate}) => {
                             dispatch(createData({
                                 title : e.target.title.value,
                                 category : e.target.category.value,
-                                description : e.target.desc.value,
+                                description : e.target.description.value,
                                 price : e.target.price.value,
                                 language : e.target.language.value
                             }))                     
@@ -89,7 +100,7 @@ const ReduxEntry = ({isUpdate}) => {
                             ))}
                         </SelectOption>
                         <BodyRegular>Description</BodyRegular>
-                        <TextArea name="desc" id="desc"/>
+                        <TextArea name="description" id="description"/>
                         <BodyRegular>Price</BodyRegular>
                         <InputText name="price" placeholder="Masukkan Harga"/>
                         <BodyRegular>Language</BodyRegular>
@@ -97,6 +108,7 @@ const ReduxEntry = ({isUpdate}) => {
                         <Button type="submit">{isUpdate ? "Update" : "Submit"}</Button>
                     </form>
                 </div>
+                )}
             </div>
         </div>
     )

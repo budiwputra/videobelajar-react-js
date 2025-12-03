@@ -19,7 +19,7 @@ const App = () => {
   const {images, avatar} = useImages()
   const [selectedCategory, setSelectedCategory] = useState("Semua Kelas")
   
-  const { data: course, total, totalPages, currentPage, isLoading, isError } = useSelector((state) => state.course);
+  const { value: course, total, totalPages, currentPage, isLoading, isError } = useSelector((state) => state.course);
 
   const categories = ["Semua Kelas", ...new Set(course.map((item) => item.category))]
   

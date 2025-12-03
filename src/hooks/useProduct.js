@@ -67,6 +67,5 @@ export const useProduct = () => {
         updateProduct,
         deleteProduct,
         product
-
     }
 }

@@ -16,7 +16,7 @@ const SideBarDashboard = () => {
     return (
         <div className="hidden sm:flex sm:flex-col">
             <div className='flex flex-row items-center py-[16px] px-[36px]'>
-            <img onClick={() => {navigate('/home')}} className='h-[30px] cursor-pointer' src={videoLogo} alt="" />
+            <img onClick={() => {navigate('/home')}} className='h-[30px] cursor-pointer' src={videoLogo} alt="VideoBelajar" />
             </div>
 
             <div className='flex flex-col'>
@@ -28,7 +28,7 @@ const SideBarDashboard = () => {
                 </ButtonMenu>
                 {openMenu === "productRedux" && (
                     <div>                      
-                        <ButtonMenu onClick={() => {navigate('redux-entry', {state:{isUpdate:false}} )}} className=" w-full text-left py-[16px] px-[36px]
+                        <ButtonMenu onClick={() => {navigate('redux-entry', {state:{isUpdate:false}})}} className=" w-full text-left py-[16px] px-[36px]
                         hover:bg-secondary-sidebar bg-secondary-sidebar-hover">Course Entry</ButtonMenu>
                         <ButtonMenu onClick={() => {navigate('redux-list')}} className="block w-full text-left py-[16px] px-[36px] 
                         hover:bg-secondary-sidebar bg-secondary-sidebar-hover">Course List </ButtonMenu>

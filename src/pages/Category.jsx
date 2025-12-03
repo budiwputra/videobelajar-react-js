@@ -5,8 +5,6 @@ import BodyLarge from "../components/elements/BodyLarge"
 import BodySemiLarge from"../components/elements/BodySemiLarge"
 import TextRegular from "../components/elements/TextRegular"
 import ButtonMenu from "../components/elements/ButtonMenu"
-import Button from "../components/elements/Button"
-import SecondaryButton from "../components/elements/SecondaryButton"
 import upSymbol from "../assets/greenarrow.png"
 import notebookSymbol from "../assets/Notebook.png"
 import shoppingSymbol from "../assets/Shopping_Bag.png"
@@ -32,7 +30,7 @@ const Category = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {images, avatar} = useImages()    
-    const { data: course, isLoading, isError } = useSelector((state) => state.course);
+    const { value: course, isLoading, isError } = useSelector((state) => state.course);
 
     const [filters, setFilters] = useState({
     category: "",
@@ -47,20 +45,20 @@ const Category = () => {
     const value = e.target.name;
 
     if (value === "lowPrice") {
-        setFilters({ ...filters, sortBy: "price", order: "asc" });
+        setFilters({ ...filters, sortBy: "price", order: "asc" })
     } else if (value === "highPrice") {
-        setFilters({ ...filters, sortBy: "price", order: "desc" });
+        setFilters({ ...filters, sortBy: "price", order: "desc" })
     } else if (value === "aToZ") {
-        setFilters({ ...filters, sortBy: "title", order: "asc" });
+        setFilters({ ...filters, sortBy: "title", order: "asc" })
     } else if (value === "zToA") {
-        setFilters({ ...filters, sortBy: "title", order: "desc" });
+        setFilters({ ...filters, sortBy: "title", order: "desc" })
     } else if (value === "ratingHigh") {
-        setFilters({ ...filters, sortBy: "rating", order: "desc" });
+        setFilters({ ...filters, sortBy: "rating", order: "desc" })
     } else if (value === "ratingLow") {
-        setFilters({ ...filters, sortBy: "rating", order: "asc" });
+        setFilters({ ...filters, sortBy: "rating", order: "asc" })
     } else {
         // reset sort
-        setFilters({ ...filters, sortBy: "", order: "" });
+        setFilters({ ...filters, sortBy: "", order: "" })
     }
     };
 
@@ -68,8 +66,8 @@ const Category = () => {
     setFilters({
     ...filters,
     [e.target.name]: e.target.value,
-    });
-    };
+    })
+    }
 
 
     const handleReset = () => {
@@ -93,7 +91,7 @@ const Category = () => {
                 <HeadingSemiBold className="text-left">Koleksi Video Pembelajaran Unggulan</HeadingSemiBold>
                 <BodyRegular className="text-left text-dark-secondary text-sm sm:text-base">Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</BodyRegular>
             </div>
-            <div className="flex flex-col w-full sm:grid sm:grid-cols-[auto_auto] gap-[24px] sm:gap-[42px]">
+            <div className="flex flex-col w-full sm:grid sm:grid-cols-[auto_70%] gap-[24px] sm:gap-[42px]">
                 <div className="flex flex-col gap-[12px] p-[16px] bg-white border rounded-[10px] border-other-border h-fit">
                     <div className="flex flex-row justify-between">
                         <button><HeadingSemiBold size="filter" className="text-dark-secondary" >Filter</HeadingSemiBold></button>

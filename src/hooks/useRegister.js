@@ -1,33 +1,34 @@
-import { useDispatch } from "react-redux";
-import { createUserData } from "../store/redux/userReducer";
-import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useDispatch } from "react-redux"
+import { createUserData } from "../store/redux/userReducer"
+import { useNavigate } from "react-router"
+import { useState } from "react"
 
 export const useRegister = () => {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState("")
 
     const registerUser = async (formData) => {
-        setLoading(true);
-        setMessage("");
+        setLoading(true)
+        setMessage("")
 
         try {
-        const res = await dispatch(createUserData(formData)).unwrap();
-        setMessage(`✅ ${res.message}`);
-        
-        setTimeout(() => navigate("/login"), 6000);
+        const res = await dispatch(createUserData(formData)).unwrap()
+        setMessage(`✅ ${res.message}`)
+
+        // pindah ke login setelah 3 detik
+        setTimeout(() => navigate("/login"), 5000)
         } catch (err) {
-        setMessage(`❌ ${err}`);
+        setMessage(`❌ ${err}`)
         } finally {
-        setLoading(false);
+        setLoading(false)
         }
 
     }
 
-    return { registerUser, loading, message };
+    return { registerUser, loading, message }
 
 }
